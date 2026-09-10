@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sitio institucional de PAZ Tamaulipas" />
+  <title>PAZ Tamaulipas</title>
+  <link rel="icon" type="image/jpeg" href="./logo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #682575;
+  --purple-dark: #4e1859;
+  --purple-soft: #f2eaf4;
+  --white: #ffffff;
+  --black: #000000;
+  --text: #18151a;
+  --muted: #706b73;
+  --border: #e7e1e9;
+  --shadow: 0 20px 50px rgba(72, 31, 80, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(104, 37, 117, 0.08);
+}
+
+.nav-wrap {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  background: var(--purple);
+  color: white;
+  border-radius: 14px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.brand-mark.small {
+  width: 48px;
+  height: 48px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text strong {
+  font-size: 16px;
+}
+
+.brand-text span {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav a {
+  transition: .25s ease;
+}
+
+.nav a:hover {
+  color: var(--purple);
+}
+
+.nav-cta {
+  background: var(--purple);
+  color: white !important;
+  padding: 11px 18px;
+  border-radius: 999px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--purple);
+  margin: 5px auto;
+}
+
+.hero {
+  position: relative;
+  min-height: 690px;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  background:
+    linear-gradient(135deg, #fff 0%, #fff 45%, #f7f0f8 100%);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  margin-top: 20px;
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+  max-width: 850px;
+}
+
+.hero-copy h1 span {
+  color: var(--purple);
+}
+
+.hero-copy p {
+  max-width: 690px;
+  margin-top: 24px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--purple);
+  color: white;
+  box-shadow: 0 14px 30px rgba(104, 37, 117, .23);
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.hero-card {
+  background: white;
+  padding: 26px;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  transform: rotate(2deg);
+}
+
+.logo-panel {
+  aspect-ratio: 1/1;
+  border-radius: 22px;
+  background: var(--purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.dove {
+  font-size: 62px;
+  line-height: .8;
+  transform: rotate(-12deg);
+}
+
+.logo-word {
+  font-size: 82px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -7px;
+}
+
+.hero-card-info {
+  padding: 22px 4px 2px;
+}
+
+.hero-card-info small,
+.person-card span,
+.news-date {
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+.hero-card-info h2 {
+  margin-top: 4px;
+  font-size: 30px;
+}
+
+.hero-card-info p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: .48;
+}
+
+.orb-one {
+  width: 420px;
+  height: 420px;
+  background: #e9d7ed;
+  right: -150px;
+  top: 40px;
+}
+
+.orb-two {
+  width: 280px;
+  height: 280px;
+  background: #f2e6f4;
+  left: -130px;
+  bottom: -80px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 50px;
+}
+
+.section-heading h2 {
+  margin-top: 10px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+
+.section-heading p {
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.stats-grid,
+.structure-grid,
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.stat-card,
+.person-card,
+.news-card {
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: white;
+}
+
+.stat-card {
+  padding: 28px;
+  min-height: 210px;
+}
+
+.stat-card strong {
+  color: var(--purple);
+  font-size: 14px;
+}
+
+.stat-card h3 {
+  margin: 34px 0 8px;
+  font-size: 24px;
+}
+
+.stat-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.purple-section {
+  background: var(--purple);
+  color: white;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.section-heading.light p {
+  color: rgba(255,255,255,.75);
+}
+
+.light-pill {
+  color: white;
+}
+
+.principle-list {
+  display: grid;
+  gap: 14px;
+}
+
+.principle {
+  display: flex;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.principle > span {
+  font-weight: 800;
+  opacity: .55;
+}
+
+.principle h3 {
+  margin-bottom: 3px;
+}
+
+.principle p {
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+}
+
+.person-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+}
+
+.avatar {
+  flex: 0 0 62px;
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--purple-soft);
+  color: var(--purple);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.person-card h3 {
+  margin: 3px 0;
+  font-size: 16px;
+}
+
+.person-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.news-section {
+  background: #faf8fb;
+}
+
+.row-heading {
+  max-width: none;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.text-link {
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.news-card {
+  overflow: hidden;
+}
+
+.news-card.featured {
+  grid-column: span 1;
+}
+
+.news-image {
+  height: 180px;
+}
+
+.gradient-a {
+  background: linear-gradient(135deg, var(--purple), #9a63a5);
+}
+
+.gradient-b {
+  background: linear-gradient(135deg, #eee2f1, #b685c0);
+}
+
+.gradient-c {
+  background: linear-gradient(135deg, #4f185a, #7f368e);
+}
+
+.news-body {
+  padding: 22px;
+}
+
+.news-body h3 {
+  margin: 8px 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.news-body p {
+  min-height: 50px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.news-body a {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.participate {
+  background: white;
+}
+
+.participate-card {
+  padding: 48px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  color: white;
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  box-shadow: var(--shadow);
+}
+
+.participate-card h2 {
+  margin-top: 14px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.08;
+}
+
+.participate-card p {
+  margin-top: 14px;
+  color: rgba(255,255,255,.75);
+}
+
+.contact-form {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 15px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 12px;
+  background: rgba(255,255,255,.10);
+  color: white;
+  font: inherit;
+  outline: none;
+}
+
+.contact-form input::placeholder {
+  color: rgba(255,255,255,.72);
+}
+
+.contact-form select option {
+  color: #111;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.check input {
+  width: auto;
+  min-height: auto;
+}
+
+.btn-white {
+  background: white;
+  color: var(--purple);
+}
+
+.form-message {
+  min-height: 20px;
+  font-size: 12px;
+  margin-top: 0 !important;
+}
+
+footer {
+  padding: 42px 0;
+  background: #130f14;
+  color: white;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-brand p,
+.copyright {
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+}
+
+.copyright {
+  grid-column: 1 / -1;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 74px;
+    display: none;
+    padding: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero-grid,
+  .principles-grid,
+  .participate-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    max-width: 500px;
+    margin: auto;
+    transform: none;
+  }
+
+  .stats-grid,
+  .structure-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, 1160px);
+  }
+
+  .brand-text span {
+    display: none;
+  }
+
+  .hero-copy h1 {
+    letter-spacing: -2px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .participate-card {
+    padding: 30px 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+}
+
+
+.official-logo {
+  display: block;
+  object-fit: contain;
+}
+
+.header-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+}
+
+.hero-logo {
+  width: min(78%, 300px);
+  height: auto;
+  max-height: 300px;
+}
+
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.logo-panel {
+  padding: 28px;
+}
+
+</style>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="PAZ Tamaulipas">
+        <img class="official-logo header-logo" src="./logo.jpg" alt="PAZ Tamaulipas" />
+        <div class="brand-text">
+          <strong>Tamaulipas</strong>
+          <span>Participación · Unidad · Comunidad</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#principios">Principios</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#participa" class="nav-cta">Participa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">PAZ · Tamaulipas</span>
+          <h1>Una propuesta ciudadana para construir <span>acuerdos, participación y comunidad.</span></h1>
+          <p>
+            Espacio institucional para conocer el proyecto, principios, actividades,
+            representación estatal y formas de participación en Tamaulipas.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#nosotros">Conocer el proyecto</a>
+            <a class="btn btn-secondary" href="#noticias">Ver noticias</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="logo-panel">
+            <img class="official-logo hero-logo" src="./logo.jpg" alt="Logotipo oficial de PAZ" />
+          </div>
+          <div class="hero-card-info">
+            <small>Identidad institucional</small>
+            <h2>Tamaulipas</h2>
+            <p>Morado institucional · #682575</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section" id="nosotros">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Quiénes somos</span>
+          <h2>Participación ciudadana con presencia en Tamaulipas</h2>
+          <p>
+            PAZ se presenta como una alternativa ciudadana orientada a la asistencia comunitaria,
+            la organización social, el diálogo y la construcción de soluciones.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card reveal">
+            <strong>01</strong>
+            <h3>Comunidad</h3>
+            <p>Acciones y actividades que acerquen el proyecto a las personas.</p>
+          </article>
+          <article class="stat-card reveal">
+            <strong>02</strong>
+            <h3>Participación</h3>
+            <p>Canales claros para conocer, colaborar y participar.</p>
+          </article>
+          <article class="stat-card reveal">
+            <strong>03</strong>
+            <h3>Transparencia</h3>
+            <p>Información institucional, estructura y comunicación pública accesible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles section purple-section" id="principios">
+      <div class="container principles-grid">
+        <div class="section-heading light reveal">
+          <span class="eyebrow light-pill">Principios</span>
+          <h2>Una identidad clara, consistente y cercana</h2>
+          <p>
+            El sitio mantiene una línea visual basada en los colores institucionales y una
+            presentación limpia para reforzar reconocimiento, orden y unidad.
+          </p>
+        </div>
+
+        <div class="principle-list">
+          <article class="principle reveal">
+            <span>01</span>
+            <div><h3>Unidad</h3><p>Una sola línea visual y de comunicación.</p></div>
+          </article>
+          <article class="principle reveal">
+            <span>02</span>
+            <div><h3>Integridad</h3><p>Información institucional presentada de forma profesional.</p></div>
+          </article>
+          <article class="principle reveal">
+            <span>03</span>
+            <div><h3>Reconocimiento</h3><p>Diseño consistente para facilitar identificación pública.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estructura">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Estructura</span>
+          <h2>Representación estatal</h2>
+          <p>
+            Esta sección puede conectarse después a una base de datos para mostrar responsables,
+            coordinaciones, municipios y datos de contacto autorizados.
+          </p>
+        </div>
+
+        <div class="structure-grid">
+          <article class="person-card reveal">
+            <div class="avatar">E</div>
+            <div>
+              <span>Coordinación Estatal</span>
+              <h3>Nombre del responsable</h3>
+              <p>Tamaulipas</p>
+            </div>
+          </article>
+          <article class="person-card reveal">
+            <div class="avatar">C</div>
+            <div>
+              <span>Comunicación</span>
+              <h3>Nombre del responsable</h3>
+              <p>Comité Estatal</p>
+            </div>
+          </article>
+          <article class="person-card reveal">
+            <div class="avatar">M</div>
+            <div>
+              <span>Municipios</span>
+              <h3>Directorio municipal</h3>
+              <p>Consulta de representación local</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-section" id="noticias">
+      <div class="container">
+        <div class="section-heading row-heading reveal">
+          <div>
+            <span class="eyebrow">Actualidad</span>
+            <h2>Noticias y comunicados</h2>
+          </div>
+          <a href="#" class="text-link">Ver todas →</a>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card featured reveal">
+            <div class="news-image gradient-a"></div>
+            <div class="news-body">
+              <span class="news-date">Comunicado</span>
+              <h3>Espacio para la noticia principal del sitio</h3>
+              <p>Resumen breve del comunicado, actividad o anuncio institucional.</p>
+              <a href="#">Leer más →</a>
+            </div>
+          </article>
+
+          <article class="news-card reveal">
+            <div class="news-image gradient-b"></div>
+            <div class="news-body">
+              <span class="news-date">Actividad</span>
+              <h3>Participación comunitaria en Tamaulipas</h3>
+              <p>Contenido de ejemplo para futuras publicaciones.</p>
+              <a href="#">Leer más →</a>
+            </div>
+          </article>
+
+          <article class="news-card reveal">
+            <div class="news-image gradient-c"></div>
+            <div class="news-body">
+              <span class="news-date">Información</span>
+              <h3>Nuevos canales de atención ciudadana</h3>
+              <p>Área preparada para anuncios y datos oficiales.</p>
+              <a href="#">Leer más →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="participate section" id="participa">
+      <div class="container participate-card reveal">
+        <div>
+          <span class="eyebrow light-pill">Participa</span>
+          <h2>¿Quieres recibir información o ponerte en contacto?</h2>
+          <p>Deja tus datos y el equipo correspondiente podrá comunicarse contigo.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+          <input type="text" id="nombre" placeholder="Nombre" required />
+          <input type="email" id="correo" placeholder="Correo electrónico" required />
+          <select id="municipio" required>
+            <option value="">Selecciona tu municipio</option>
+            <option>Reynosa</option>
+            <option>Matamoros</option>
+            <option>Nuevo Laredo</option>
+            <option>Ciudad Victoria</option>
+            <option>Tampico</option>
+            <option>Otro</option>
+          </select>
+          <label class="check">
+            <input type="checkbox" required />
+            <span>Acepto el aviso de privacidad.</span>
+          </label>
+          <button class="btn btn-white" type="submit">Enviar información</button>
+          <p class="form-message" id="formMessage"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img class="official-logo footer-logo" src="./logo.jpg" alt="PAZ Tamaulipas" />
+        <p>Sitio institucional · Tamaulipas</p>
+      </div>
+      <div class="footer-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#participa">Contacto</a>
+        <a href="#">Aviso de privacidad</a>
+      </div>
+      <p class="copyright">© <span id="year"></span> PAZ Tamaulipas. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+const year = document.getElementById("year");
+
+year.textContent = new Date().getFullYear();
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const correo = document.getElementById("correo").value.trim();
+  const municipio = document.getElementById("municipio").value;
+
+  if (!nombre || !correo || !municipio) {
+    formMessage.textContent = "Completa los campos requeridos.";
+    return;
+  }
+
+  formMessage.textContent = "Formulario listo. Falta conectarlo al backend o servicio de correo.";
+  contactForm.reset();
+});
+
+</script>
+</body>
+</html>
