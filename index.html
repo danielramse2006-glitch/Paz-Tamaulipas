@@ -25,7 +25,7 @@ a{text-decoration:none;color:inherit} button,input,select,textarea{font:inherit}
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:900}
-.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--p),var(--p3));color:white;display:grid;place-items:center;font-weight:900;box-shadow:0 10px 24px rgba(104,37,117,.22)}
+.logo-img{width:76px;height:58px;object-fit:contain;display:block;flex-shrink:0}
 .brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.4px;margin-top:2px}
 .links{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:700}
 .btn{border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
@@ -76,6 +76,7 @@ footer{background:#201723;color:#fff;padding:44px 0 26px}.footer-grid{display:gr
 .admin-shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
 .sidebar{background:#211724;color:white;padding:22px 16px;position:sticky;top:0;height:100vh}
 .sidebar .brand small{color:#ffffff80}
+.sidebar .logo-img{width:68px;height:52px;background:white;border-radius:12px;padding:5px}
 .admin-menu{margin-top:30px;display:grid;gap:7px}
 .admin-menu button{border:0;background:transparent;color:#ffffffbf;text-align:left;padding:12px 13px;border-radius:12px;font-weight:700;cursor:pointer}
 .admin-menu button.active,.admin-menu button:hover{background:#ffffff14;color:#fff}
@@ -109,6 +110,7 @@ footer{background:#201723;color:#fff;padding:44px 0 26px}.footer-grid{display:gr
 }
 @media(max-width:600px){
  .container{width:min(100% - 22px,1180px)} .hero{padding:50px 0}.hero h1{font-size:44px}
+ .logo-img{width:64px;height:50px}
  .cards,.people,.stats,.editor-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}
  .topbar .container{display:block}.cta-box{padding:26px 18px}.cta-box h2{font-size:30px}
  .footer-grid{grid-template-columns:1fr}.admin-main{padding:16px}.admin-menu{grid-template-columns:1fr 1fr}
@@ -134,7 +136,7 @@ footer{background:#201723;color:#fff;padding:44px 0 26px}.footer-grid{display:gr
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo">PAZ</div>
+        <img src="logo.jpg" alt="PAZ Tamaulipas" class="logo-img">
         <div>PAZ Tamaulipas<small>PARTIDO ESTATAL</small></div>
       </div>
       <nav class="links">
@@ -232,7 +234,13 @@ footer{background:#201723;color:#fff;padding:44px 0 26px}.footer-grid{display:gr
 
   <footer>
     <div class="container footer-grid">
-      <div><div class="brand"><div class="logo">PAZ</div><div>PAZ Tamaulipas<small style="color:#ffffff75">DEMO UI</small></div></div><p>Interfaz demostrativa para visualizar la futura plataforma institucional.</p></div>
+      <div>
+        <div class="brand">
+          <img src="logo.jpg" alt="PAZ Tamaulipas" class="logo-img">
+          <div>PAZ Tamaulipas<small style="color:#ffffff75">DEMO UI</small></div>
+        </div>
+        <p>Interfaz demostrativa para visualizar la futura plataforma institucional.</p>
+      </div>
       <div><b>Secciones</b><p>Nosotros<br>Noticias<br>Representantes<br>Participa</p></div>
       <div><b>Contacto</b><p>contacto@paztamaulipas.mx<br>+52 899 000 0000<br>Tamaulipas, México</p></div>
     </div>
@@ -242,7 +250,10 @@ footer{background:#201723;color:#fff;padding:44px 0 26px}.footer-grid{display:gr
 <div id="adminView">
   <div class="admin-shell">
     <aside class="sidebar">
-      <div class="brand"><div class="logo">PAZ</div><div>Administración<small>PAZ TAMAULIPAS</small></div></div>
+      <div class="brand">
+        <img src="logo.jpg" alt="PAZ Tamaulipas" class="logo-img">
+        <div>Administración<small>PAZ TAMAULIPAS</small></div>
+      </div>
       <div class="admin-menu">
         <button class="active">▦ Dashboard</button>
         <button>📰 Noticias</button>
